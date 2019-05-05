@@ -1,5 +1,5 @@
 ### Date created
-05/05/2019
+05/05/2019 (5th May 2019)
 
 ### Project Title
 Bikeshare Python Project
