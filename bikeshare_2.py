@@ -61,7 +61,6 @@ def get_filters():
     print('-'*40)
     return city, month, day
 
-
 def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
@@ -105,7 +104,6 @@ def load_data(city, month, day):
 
     return df
 
-
 def time_stats(df):
     """Displays statistics on the most frequent times of travel in the chosen dataset."""
 
@@ -125,8 +123,22 @@ def time_stats(df):
     popular_hour = df['Hour'].mode()[0]
     print("The most popular hour is: {}".format(popular_hour))
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
 
+def trip_duration_stats(df):
+    """Displays statistics on the total and average trip duration."""
+
+    print('\nCalculating Trip Duration...\n')
+    start_time = time.time()
+
+    # display total travel time
+    total_hours = (df['Trip Duration'].sum() / 60) / 60
+    print("The total number of hours spent biking is: {}".format(total_hours))
+    # display mean travel time
+    mean_minutes = df['Trip Duration'].mean() / 60
+    print("The average number of minutes spent biking is: {}".format(mean_minutes))
+
+    print("\nThis took %s seconds." % (time.time() - start_time))
+    print('-'*40)
 
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
@@ -148,24 +160,6 @@ def station_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
-
-def trip_duration_stats(df):
-    """Displays statistics on the total and average trip duration."""
-
-    print('\nCalculating Trip Duration...\n')
-    start_time = time.time()
-
-    # display total travel time
-    total_hours = (df['Trip Duration'].sum() / 60) / 60
-    print("The total number of hours spent biking is: {}".format(total_hours))
-    # display mean travel time
-    mean_minutes = df['Trip Duration'].mean() / 60
-    print("The average number of minutes spent biking is: {}".format(mean_minutes))
-
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
-
 
 def user_stats(df):
     """Displays statistics on bikeshare users."""
@@ -192,8 +186,6 @@ def user_stats(df):
         print("\nThis took %s seconds." % (time.time() - start_time))
         print('-'*40)
 
-
-
 def main():
     while True:
         city, month, day = get_filters()
@@ -219,7 +211,6 @@ def main():
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower().strip() != 'yes':
             break
-
 
 if __name__ == "__main__":
 	main()
