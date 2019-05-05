@@ -128,6 +128,25 @@ def time_stats(df):
     print('-'*40)
 
 
+
+def trip_duration_stats(df):
+    """Displays statistics on the total and average trip duration."""
+
+    print('\nCalculating Trip Duration...\n')
+    start_time = time.time()
+
+    # display total travel time
+    total_hours = (df['Trip Duration'].sum() / 60) / 60
+    print("The total number of hours spent biking is: {}".format(total_hours))
+    # display mean travel time
+    mean_minutes = df['Trip Duration'].mean() / 60
+    print("The average number of minutes spent biking is: {}".format(mean_minutes))
+
+    print("\nThis took %s seconds." % (time.time() - start_time))
+    print('-'*40)
+
+
+
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
@@ -145,23 +164,6 @@ def station_stats(df):
     df['Combination'] = df['Start Station'] + " -> " + df['End Station']
     popular_combo = df['Combination'].mode()[0]
     print("The most popular start station is: {}".format(popular_combo))
-
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
-
-
-def trip_duration_stats(df):
-    """Displays statistics on the total and average trip duration."""
-
-    print('\nCalculating Trip Duration...\n')
-    start_time = time.time()
-
-    # display total travel time
-    total_hours = (df['Trip Duration'].sum() / 60) / 60
-    print("The total number of hours spent biking is: {}".format(total_hours))
-    # display mean travel time
-    mean_minutes = df['Trip Duration'].mean() / 60
-    print("The average number of minutes spent biking is: {}".format(mean_minutes))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
