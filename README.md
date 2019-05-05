@@ -1,15 +1,18 @@
 ### Date created
-Include the date you created this project and README file.
+05/05/2019
 
 ### Project Title
-Replace the Project Title
+Bikeshare Python Project
 
 ### Description
-Describe what your project is about and what it does
+Bikeshare uses python to give the user an opportunity to explore the U.S. bikeshare data
+using an interactive interface
 
 ### Files used
-Include the files used
+CSV files containing the bikeshare data:
+chicago.csv
+new_york_city.csv
+washington.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+Udacity.com
